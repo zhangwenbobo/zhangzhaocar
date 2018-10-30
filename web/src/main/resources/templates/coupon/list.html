@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>优惠劵消费统计</title>
+</head>
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+    <div th:include="include/left"></div>
+    <div class="layui-body">
+        <!-- 内容主体区域 -->
+        <div class="layui-form" style="padding: 20px">
+            <div class="layui-btn-group">
+                <span class="layui-code">优惠劵消费统计</span>
+            </div>
+            <table class="layui-table">
+                <thead>
+                <tr>
+                    <th>优惠劵</th>
+                    <th>代金券</th>
+                    <th>已使用总金额</th>
+                    <th>未使用总金额</th>
+                    <th>已过期总金额</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td th:text="${statistics?.appFrequency}"></td>
+                    <td th:text="${statistics?.userFrequency}"></td>
+                    <td th:text="${statistics?.userOrderFrequency}"></td>
+                    <td th:text="${statistics?.monoRate}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="layui-footer" th:include="include/bottom"></div>
+</div>
+</body>
+<script type="text/javascript">
+    layui.use(['element'], function () {
+        var element = layui.element;
+    })
+</script>
+</html>
